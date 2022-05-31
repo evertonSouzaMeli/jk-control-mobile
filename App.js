@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 
-
 export default class App extends React.Component {
       state = {
       nome: '',
@@ -12,6 +11,15 @@ export default class App extends React.Component {
       auth: 0
   }
 
+  submitName(){
+    const { screen_1, screen_2, nome } = this.state 
+    if(!nome){
+      alert('Nome deve ser obrigatorio')
+    }else{
+      this.setState({screen_1: false})
+      this.setState({screen_2: true})
+    }
+  }
 
   render() {
     const { screen_1, screen_2, auth, nome }  = this.state
@@ -22,7 +30,7 @@ export default class App extends React.Component {
           screen_1 &&
           <View style={styles.container}>
             < TextInput style={styles.input} placeholderTextColor="white" placeholder='Nome' onChangeText={str => this.setState({ nome: str })}/>
-            <Pressable style={styles.button} onPress={() => this.setState({ screen_1: false, screen_2: true })}><Text>Solicitar Autorização</Text></Pressable>
+            <Pressable style={styles.button} onPress={() => this.submitName()}><Text>Solicitar Autorização</Text></Pressable>
             <Pressable style={styles.button}><Text>Limpar</Text></Pressable>
             {
               auth == 1 && 
