@@ -12,7 +12,7 @@ export default class App extends React.Component {
   }
 
   submitName(){
-    const { screen_1, screen_2, nome } = this.state 
+    const { nome } = this.state 
     if(!nome){
       alert('Nome deve ser obrigatorio')
     }else{
@@ -58,7 +58,6 @@ export default class App extends React.Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
