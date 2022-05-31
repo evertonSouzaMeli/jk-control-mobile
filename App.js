@@ -29,7 +29,7 @@ export default class App extends React.Component {
         {
           screen_1 &&
           <View style={styles.container}>
-            <TextInput value={nome} style={styles.input} placeholderTextColor="white" placeholder='Nome' onChangeText={str => this.setState({ nome: str })}/>
+            <TextInput value={nome} style={styles.input} placeholderTextColor="white" placeholder='Nome' onChangeText={str => this.setState({ nome: str, auth: 0 })}/>
             <Pressable style={styles.button} onPress={() => this.submitName()}><Text>Solicitar Autorização</Text></Pressable>
             <Pressable style={styles.button} onPress={() => this.setState({nome : ''})}><Text>Limpar</Text></Pressable>
             {
